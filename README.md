@@ -31,7 +31,7 @@ cd xml-base64-decoder
 chmod +x xml_decoder.py
 
 # Run the decoder
-python xml_decoder.py input.xml
+python3 xml_decoder.py input.xml
 ```
 
 ## Usage
@@ -40,32 +40,32 @@ python xml_decoder.py input.xml
 
 ```bash
 # Decode and display results in console
-python xml_decoder.py input.xml
+python3 xml_decoder.py input.xml
 
 # Decode and save to file
-python xml_decoder.py input.xml -o output.txt
+python3 xml_decoder.py input.xml -o output.txt
 
 # Quiet mode (only show summary)
-python xml_decoder.py input.xml -o output.txt -q
+python3 xml_decoder.py input.xml -o output.txt -q
 ```
 
 ### Advanced Options
 
 ```bash
 # Keep escape sequences in HTTP headers (don't expand \n, \t, etc.)
-python xml_decoder.py input.xml --no-unescape
+python3 xml_decoder.py input.xml --no-unescape
 
 # Keep escape sequences in JSON strings
-python xml_decoder.py input.xml --no-expand-json
+python3 xml_decoder.py input.xml --no-expand-json
 
 # Both options together
-python xml_decoder.py input.xml --no-unescape --no-expand-json -o output.txt
+python3 xml_decoder.py input.xml --no-unescape --no-expand-json -o output.txt
 ```
 
 ### Help
 
 ```bash
-python xml_decoder.py -h
+python3 xml_decoder.py -h
 ```
 
 ## Input Format

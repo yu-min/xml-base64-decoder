@@ -494,6 +494,6 @@ if __name__ == "__main__":
         sys.exit(main())
     else:
         print("\nTip: You can use command-line arguments")
-        print("Usage: python xml_decoder.py input.xml -o output.txt")
+        print("Usage: python3 xml_decoder.py input.xml -o output.txt")
         print("\nRunning in simple mode...\n")
         simple_run()
