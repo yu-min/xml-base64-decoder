@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sample input file for XML Base64 Decoder
+  This file demonstrates the expected input format.
+
+  Each element with base64="true" will be decoded by the tool.
+-->
+<items>
+
+  <!-- Example 1: Simple HTTP GET request -->
+  <item>
+    <name>Simple GET Request</name>
+    <request base64="true">R0VUIC9hcGkvdXNlcnMgSFRUUC8xLjENCkhvc3Q6IGV4YW1wbGUuY29tDQpBY2NlcHQ6IGFwcGxpY2F0aW9uL2pzb24NCg==</request>
+  </item>
+
+  <!-- Example 2: POST request with JSON body -->
+  <item>
+    <name>POST with JSON Body</name>
+    <request base64="true">UE9TVCAvYXBpL3VzZXJzIEhUVFAvMS4xDQpIb3N0OiBleGFtcGxlLmNvbQ0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9qc29uDQpDb250ZW50LUxlbmd0aDogMzQNCg0KeyJuYW1lIjoiSm9obiIsImFnZSI6MzB9</request>
+  </item>
+
+  <!-- Example 3: Traditional Chinese (繁體中文) JSON response -->
+  <item>
+    <name>Traditional Chinese Content Response</name>
+    <response base64="true">eyJuYW1lIjogIueOi+Wwj+aYjiIsICJjaXR5IjogIuiHuuWMlyIsICJzdGF0dXMiOiAi5oiQ5YqfIn0=</response>
+  </item>
+  <!--
+    Decoded:
+    {"name": "王小明", "city": "臺北", "status": "成功"}
+  -->
+
+  <!-- Example 4: Traditional Chinese (繁體中文) POST request with JSON body -->
+  <item>
+    <name>Traditional Chinese POST Request</name>
+    <request base64="true">UE9TVCAvYXBpL3VzZXJzIEhUVFAvMS4xDQpIb3N0OiBleGFtcGxlLmNvbQ0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9qc29uDQpDb250ZW50LUxlbmd0aDogODgNCg0KeyLkvb/nlKjogIXlkI3nqLEiOiAi546L5bCP5piOIiwgIumbu+WtkOmDteS7tiI6ICJ3YW5nQGV4YW1wbGUuY29tIiwgIuWfjuW4giI6ICLoh7rljJcifQ==</request>
+  </item>
+  <!--
+    Decoded:
+    POST /api/users HTTP/1.1
+    Host: example.com
+    Content-Type: application/json
+    Content-Length: 88
+
+    {"使用者名稱": "王小明", "電子郵件": "wang@example.com", "城市": "臺北"}
+  -->
+
+  <!-- Example 5: Traditional Chinese (繁體中文) nested JSON with escape sequences -->
+  <item>
+    <name>Traditional Chinese Nested JSON with Escapes</name>
+    <response base64="true">eyLni4DmhYsiOiAi5q2j5bi4IiwgIuizh+aWmSI6IHsi6Kqq5piOIjogIuesrOS4gOihjFxu56ys5LqM6KGMXG7nrKzkuInooYwiLCAi5YiG5pW4IjogMTAwfX0=</response>
+  </item>
+  <!--
+    Decoded:
+    {"狀態": "正常", "資料": {"說明": "第一行\n第二行\n第三行", "分數": 100}}
+  -->
+
+  <!-- Example 6: Simplified Chinese (簡體中文) JSON response -->
+  <item>
+    <name>Simplified Chinese Content Response</name>
+    <response base64="true">eyJuYW1lIjoi5byg5LiJIiwiY2l0eSI6IuS4iua1tyIsInN0YXR1cyI6InN1Y2Nlc3MifQ==</response>
+  </item>
+  <!--
+    Decoded:
+    {"name": "张三", "city": "上海", "status": "success"}
+  -->
+
+  <!-- Example 7: Simplified Chinese (簡體中文) POST request with JSON body -->
+  <item>
+    <name>Simplified Chinese POST Request</name>
+    <request base64="true">UE9TVCAvYXBpL3VzZXJzIEhUVFAvMS4xDQpIb3N0OiBleGFtcGxlLmNvbQ0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9qc29uDQpDb250ZW50LUxlbmd0aDogODANCg0KeyLnlKjmiLflkI0iOiAi5byg5LiJIiwgIueUteWtkOmCruS7tiI6ICJ6aGFuZ0BleGFtcGxlLmNvbSIsICLln47luIIiOiAi5LiK5rW3In0=</request>
+  </item>
+  <!--
+    Decoded:
+    POST /api/users HTTP/1.1
+    Host: example.com
+    Content-Type: application/json
+    Content-Length: 80
+
+    {"用户名": "张三", "电子邮件": "zhang@example.com", "城市": "上海"}
+  -->
+
+  <!-- Example 8: Plain text (non-HTTP) -->
+  <item>
+    <name>Plain Text Data</name>
+    <data base64="true">SGVsbG8sIFdvcmxkIQpUaGlzIGlzIGEgc2FtcGxlIHRleHQgZmlsZS4KSXQgY29udGFpbnMgbXVsdGlwbGUgbGluZXMu</data>
+  </item>
+
+  <!-- Example 9: Nested JSON with escape sequences (English) -->
+  <item>
+    <name>Nested JSON with Escapes</name>
+    <response base64="true">eyJzdGF0dXMiOiJvayIsImRhdGEiOnsiZGVzY3JpcHRpb24iOiJMaW5lIDFcbkxpbmUgMlxuTGluZSAzIiwic2NvcmUiOjk5fX0=</response>
+  </item>
+
+</items>
