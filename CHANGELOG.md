@@ -13,7 +13,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Batch file processing (multiple input files)
 - Web interface
 - Docker support
-- Additional output formats (CSV, HTML)
+- Additional output formats (CSV, HTML
+## [1.1.0] - 2026-03-04
+
+### Added
+- Secure XML parsing with the defusedxml library by default to mitigate XXE and entity expansion attacks. The standard parser is available via the `--unsafe-xml` flag.
+- Optional `--max-xml-size` and `--max-b64-size` flags to limit XML file size and Base64 payload length, preventing resource exhaustion.
+- Strict Base64 validation: accepts only valid Base64 characters and rejects malformed input to ensure data integrity.
+- Output sanitization: escapes control characters and ANSI escape sequences for safe console and log output; disable with `--raw-output`.
+- Documentation updates (README and Quickstart) to cover these new features and usage guidelines.
 
 ## [1.0.0] - 2026-03-03
 
