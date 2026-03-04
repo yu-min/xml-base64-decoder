@@ -7,7 +7,7 @@ git clone https://github.com/yu-min/xml-base64-decoder.git
 cd xml-base64-decoder
 ```
 
-No additional dependencies required!
+Requires Python 3.7+ and the `defusedxml` library for secure XML parsing. Install it using `pip install defusedxml`.
 
 ## Basic Usage
 
@@ -50,6 +50,15 @@ python3 xml_decoder.py input.xml -q -o results.txt
 
 # Keep original escape sequences
 python3 xml_decoder.py input.xml --no-expand-json
+
+# Limit XML and Base64 sizes
+python3 xml_decoder.py input.xml --max-xml-size 1000000 --max-b64-size 10000
+
+# Raw output (no escaping of control characters)
+python3 xml_decoder.py input.xml --raw-output
+
+# Use built-in (unsafe) XML parser
+python3 xml_decoder.py input.xml --unsafe-xml
 
 # Show help
 python3 xml_decoder.py -h
