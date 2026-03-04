@@ -12,13 +12,17 @@ A powerful Python tool for decoding Base64-encoded content in XML files, with sp
 ✅ **HTTP Request Formatting**: Formats HTTP requests with proper line breaks  
 ✅ **Plain Text View**: Creates readable plain-text representation of JSON data  
 ✅ **Command-Line Interface**: Easy to use with flexible options  
+*✅* **Secure XML Parsing**: Uses the `defusedxml` library by default to mitigate XXE and entity expansion attacks. Falling back to the standard parser requires the `--unsafe-xml` flag.
+*✅* **Size Limits**: Optional `--max-xml-size` and `--max-b64-size` parameters allow limiting XML file size and Base64 payload length to prevent resource exhaustion attacks.
+*✅* **Strict Base64 Validation**: Accepts only valid Base64 characters and rejects malformed input to prevent data integrity issues.
+*✅* **Output Sanitization**: Escapes control characters and ANSI escape sequences to protect your terminal and logs (disable with `--raw-output`).
 
 ## Installation
 
 ### Requirements
 
 - Python 3.10 or higher
-- No external dependencies required (uses only Python standard library)
+- Requires the [defusedxml](https://pypi.org/project/defusedxml/) library for secure XML parsing (`pip install defusedxml`). The tool falls back to the standard library only when the `--unsafe-xml` flag is used.
 
 ### Quick Start
 
@@ -26,6 +30,8 @@ A powerful Python tool for decoding Base64-encoded content in XML files, with sp
 # Clone the repository
 git clone https://github.com/yu-min/xml-base64-decoder.git
 cd xml-base64-decoder
+# Install dependencies
+pip install defusedxml
 
 # Make the script executable (optional)
 chmod +x xml_decoder.py
@@ -59,6 +65,14 @@ python3 xml_decoder.py input.xml --no-unescape
 python3 xml_decoder.py input.xml --no-expand-json
 
 # Both options together
+# Set maximum XML and Base64 sizes
+python3 xml_decoder.py input.xml --max-xml-size 102400 --max-b64-size 2000
+
+# Disable sanitisation of control characters (raw output)
+python3 xml_decoder.py input.xml --raw-output
+
+# Use standard (unsafe) XML parser
+python3 xml_decoder.py input.xml --unsafe-xml
 python3 xml_decoder.py input.xml --no-unescape --no-expand-json -o output.txt
 ```
 
@@ -212,6 +226,10 @@ for result in results:
 | `-q, --quiet` | Quiet mode - suppress detailed output |
 | `--no-unescape` | Don't decode escape sequences in HTTP headers |
 | `--no-expand-json` | Don't expand escape sequences in JSON strings |
+| '--raw-output' | Do not sanitise control characters in console output |
+| '--max-xml-size' | Maximum XML file size in bytes (default: unlimited) |
+| '--max-b64-size' | Maximum Base64 payload length in characters (default: unlimited) |
+| '--unsafe-xml' | Use standard XML parser (disables protections) |
 | `-h, --help` | Show help message |
 
 ## Common Use Cases
