@@ -11,10 +11,10 @@ A powerful Python tool for decoding Base64-encoded content in XML files, with sp
 ✅ **JSON Formatting**: Auto-detects and pretty-prints JSON content  
 ✅ **HTTP Request Formatting**: Formats HTTP requests with proper line breaks  
 ✅ **Plain Text View**: Creates readable plain-text representation of JSON data  
-✅ **Command-Line Interface**: Easy to use with flexible options  
-✅ **Secure XML Parsing**: Uses the `defusedxml` library by default to mitigate XXE and entity expansion attacks. Falling back to the standard parser requires the `--unsafe-xml` flag.
-✅ **Size Limits**: Optional `--max-xml-size` and `--max-b64-size` parameters allow limiting XML file size and Base64 payload length to prevent resource exhaustion attacks.
-✅ **Strict Base64 Validation**: Accepts only valid Base64 characters and rejects malformed input to prevent data integrity issues.
+✅ **Command-Line Interface**: Easy to use with flexible options
+✅ **Secure XML Parsing**: Uses the `defusedxml` library by default to mitigate XXE and entity expansion attacks. Falling back to the standard parser requires the `--unsafe-xml` flag
+✅ **Size Limits**: Optional `--max-xml-size` and `--max-b64-size` parameters allow limiting XML file size and Base64 payload length to prevent resource exhaustion attacks
+✅ **Strict Base64 Validation**: Accepts only valid Base64 characters and rejects malformed input to prevent data integrity issues
 ✅ **Output Sanitization**: Escapes control characters and ANSI escape sequences to protect your terminal and logs (disable with `--raw-output`).
 
 ## Installation
